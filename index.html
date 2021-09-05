@@ -259,6 +259,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/06/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%9D%83%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yanzx's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/06/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%9D%83%E5%80%BC/" itemprop="url">二叉树的最小权值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-06T00:02:24+08:00">
+                2021-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>动态规划</p>
+<p>W(v) = 1 + 2W(L) + 3W(R) + (C(L)) ^ 2 x C(R)。</p>
+<p>设该树节点的个数为i</p>
+<p>则 left + right = i - 1</p>
+<p>dp[i]表示节点为i时，该树权值的最小值。</p>
+<p>dp[i]  =  min(dp[i], 1 + 2 * dp[left] + 3 * dp[right] + left * left * right)</p>
+<p>其中dp[0] = 0 dp[1] = 1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化一个值全正无穷的数组</span></span><br><span class="line">dp = [<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2021</span> + <span class="number">1</span>)] </span><br><span class="line"></span><br><span class="line">dp[<span class="number">0</span>], dp[<span class="number">1</span>] = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">2021</span> + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> left <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">        right = i - <span class="number">1</span> - left</span><br><span class="line">        dp[i] = <span class="built_in">min</span>(dp[i], <span class="number">1</span> + <span class="number">2</span> * dp[left] + <span class="number">3</span> * dp[right] + left ** <span class="number">2</span>  * right)</span><br><span class="line"><span class="built_in">print</span>(dp[-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/05/%E9%99%90%E6%B5%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -580,7 +708,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
