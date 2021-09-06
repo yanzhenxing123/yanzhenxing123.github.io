@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="监控,python," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="背景多贝数据部门中间表项目监控   Kafka的队列累 中间表的更新数量  StatsDStatsD 狭义上来讲，其实就是一个监听 UDP(Default)&#x2F;TCP 的守护程序 基本分为了三步，  根据简单的协议收集 StatsD 客户端发送来的数据; 解析数据并进行聚合； 定时推送给后端，如 Graphite 和 InfluxDB 等，并通过 Grafana 等展示  github链接: htt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/09/05/hello-world/index.html">
+<meta property="og:title" content="StatsD Metrics">
+<meta property="og:url" content="http://example.com/2021/09/06/StatsD-Metrics/index.html">
 <meta property="og:site_name" content="Yanzx&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="背景多贝数据部门中间表项目监控   Kafka的队列累 中间表的更新数量  StatsDStatsD 狭义上来讲，其实就是一个监听 UDP(Default)&#x2F;TCP 的守护程序 基本分为了三步，  根据简单的协议收集 StatsD 客户端发送来的数据; 解析数据并进行聚合； 定时推送给后端，如 Graphite 和 InfluxDB 等，并通过 Grafana 等展示  github链接: htt">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-09-05T08:15:42.528Z">
-<meta property="article:modified_time" content="2021-09-05T08:15:42.528Z">
+<meta property="article:published_time" content="2021-09-06T06:40:00.000Z">
+<meta property="article:modified_time" content="2021-09-06T06:42:07.348Z">
 <meta property="article:author" content="yanzx">
+<meta property="article:tag" content="监控">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/09/05/hello-world/"/>
+  <link rel="canonical" href="http://example.com/2021/09/06/StatsD-Metrics/"/>
 
 
 
 
 
-  <title>Hello World | Yanzx's Blog</title>
+  <title>StatsD Metrics | Yanzx's Blog</title>
   
 
 
@@ -272,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/06/StatsD-Metrics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -289,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">StatsD Metrics</h1>
         
 
         <div class="post-meta">
@@ -301,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-05T16:15:42+08:00">
-                2021-09-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-06T14:40:00+08:00">
+                2021-09-06
               </time>
             
 
@@ -311,6 +313,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -339,20 +363,41 @@
       
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>多贝数据部门中间表项目监控 </p>
+<ol>
+<li>Kafka的队列累</li>
+<li>中间表的更新数量</li>
+</ol>
+<h2 id="StatsD"><a href="#StatsD" class="headerlink" title="StatsD"></a>StatsD</h2><p>StatsD 狭义上来讲，其实就是一个监听 UDP(Default)/TCP 的守护程序</p>
+<p>基本分为了三步，</p>
+<ol>
+<li>根据简单的协议收集 StatsD 客户端发送来的数据;</li>
+<li>解析数据并进行聚合；</li>
+<li>定时推送给后端，如 Graphite 和 InfluxDB 等，并通过 Grafana 等展示</li>
+</ol>
+<p>github链接: <a target="_blank" rel="noopener" href="https://github.com/statsd/statsd/blob/master/docs/metric_types.md">https://github.com/statsd/statsd/blob/master/docs/metric_types.md</a></p>
+<h2 id="StatsD-metrics"><a href="#StatsD-metrics" class="headerlink" title="StatsD metrics"></a>StatsD metrics</h2><p>格式：<code>&lt;metric_name/bucket&gt;:&lt;value&gt;|&lt;type&gt;[|@sample_rate]</code></p>
+<p><strong>指标类型</strong>： counter、timer、set、guage</p>
+<h3 id="counter"><a href="#counter" class="headerlink" title="counter"></a>counter</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">countor:1|c</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="timing"><a href="#timing" class="headerlink" title="timing"></a>timing</h3><p>计时器，可以计算平均值、最大值、最小值等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timer: 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95|t</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="gauge"><a href="#gauge" class="headerlink" title="gauge"></a>gauge</h3><p>标量是任何可测量的一维变量，如内存、人的身高、体重等。</p>
+<p>如果该值在下次刷新前没有更新，那么就会发送上次的值。也可以在值前添加正负号，用于表示对值的修改，而非设置。这也就意味着，不能直接设置负值，需要先设置为 0 才可以。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gaugor:333|g</span><br><span class="line">gaugor:-10|g</span><br><span class="line">gaugor:+4|g</span><br></pre></td></tr></table></figure>
 
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>记录flush期间不重复的值。</p>
+<p>可以针对某一个集合进行统计，统计总共出现了多少种类的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">seter:765|s</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python调用"><a href="#Python调用" class="headerlink" title="Python调用"></a>Python调用</h2><p>Python中的.就相当于隔开了一个tag</p>
+<p>Tag1: env</p>
+<p>Tag2: log_type</p>
+<p>Tag3: class_name</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsd <span class="keyword">import</span> StatsClient</span><br><span class="line"></span><br><span class="line">stat = <span class="string">f&quot;<span class="subst">&#123;os.getenv(<span class="string">&#x27;ENV&#x27;</span>, <span class="string">&#x27;local&#x27;</span>)&#125;</span>.<span class="subst">&#123;log_type&#125;</span>.<span class="subst">&#123;c.__class__.__name__&#125;</span>&quot;</span></span><br><span class="line"><span class="comment"># 中间表计算耗时</span></span><br><span class="line">SDC_TIMING.timing(stat, <span class="built_in">int</span>((time.time() - t) * <span class="number">1000</span>))</span><br><span class="line"><span class="comment"># 中间表计算量</span></span><br><span class="line">SDC_TIMING.incr(stat)</span><br><span class="line"><span class="comment"># 中间表更新数量</span></span><br><span class="line">SDC_SET.incr(stat, result.modified_count)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -367,6 +412,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag"># 监控</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
       
@@ -376,15 +429,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2021/09/06/%E5%8E%8B%E6%B5%8B/" rel="next" title="压测">
+                <i class="fa fa-chevron-left"></i> 压测
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/09/05/%E9%99%90%E6%B5%81/" rel="prev" title="限流">
-                限流 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +605,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StatsD"><span class="nav-number">2.</span> <span class="nav-text">StatsD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StatsD-metrics"><span class="nav-number">3.</span> <span class="nav-text">StatsD metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#counter"><span class="nav-number">3.1.</span> <span class="nav-text">counter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timing"><span class="nav-number">3.2.</span> <span class="nav-text">timing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gauge"><span class="nav-number">3.3.</span> <span class="nav-text">gauge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">3.4.</span> <span class="nav-text">set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E8%B0%83%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">Python调用</span></a></li></ol></div>
             
 
           </div>
