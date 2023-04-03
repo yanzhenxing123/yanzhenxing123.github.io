@@ -8,8 +8,8 @@ subtitle: ''
 description: 'Just run'
 keywords: python && ML 
 author: ksdb
-language: zh-Hans
-timezone: ''
+language: zh-CN
+timezone: 'Asia/Shanghai'
 avatar: https://oss.tool.lu/cache/202304/02/171342z8gssbopv88ssv3y.jpg.icon.png
 
 # URL
