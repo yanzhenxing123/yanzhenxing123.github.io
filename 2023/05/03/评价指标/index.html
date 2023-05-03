@@ -20,31 +20,38 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Just run">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yanzx&#39;s Blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="我们用一张表格展示推荐系统向用户推荐的列表与用户真实的访问项目,如下：    用户 真实值 推荐列表 是否命中    A 12 3,10,15,12,17 是（1）   B 3 20,15,18,14,30 否（0）   C 5 2,5,7,8,15 是（1）   D 14 56,14,25,12,19 是（1）   E 20 21,24,36,54,45 否（0）   评价指标的来源是根据TKD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="推荐系统算法评价指标">
+<meta property="og:url" content="http://example.com/2023/05/03/%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/index.html">
 <meta property="og:site_name" content="Yanzx&#39;s Blog">
-<meta property="og:description" content="Just run">
+<meta property="og:description" content="我们用一张表格展示推荐系统向用户推荐的列表与用户真实的访问项目,如下：    用户 真实值 推荐列表 是否命中    A 12 3,10,15,12,17 是（1）   B 3 20,15,18,14,30 否（0）   C 5 2,5,7,8,15 是（1）   D 14 56,14,25,12,19 是（1）   E 20 21,24,36,54,45 否（0）   评价指标的来源是根据TKD">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201010210902471.png#pic_center">
+<meta property="og:image" content="http://ksdb-blogimg.oss-cn-beijing.aliyuncs.com/typora/202305/03/143653-749278.png">
+<meta property="og:image" content="http://ksdb-blogimg.oss-cn-beijing.aliyuncs.com/typora/202303/06/201555-273453.png">
+<meta property="og:image" content="http://ksdb-blogimg.oss-cn-beijing.aliyuncs.com/typora/202303/06/201938-981382.png">
+<meta property="article:published_time" content="2023-05-03T06:43:27.000Z">
+<meta property="article:modified_time" content="2023-05-03T06:44:00.179Z">
 <meta property="article:author" content="ksdb">
-<meta property="article:tag" content="python &amp;&amp; ML">
+<meta property="article:tag" content="算法评价">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201010210902471.png#pic_center">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2023/05/03/%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Yanzx's Blog</title>
+  <title>推荐系统算法评价指标 | Yanzx's Blog</title>
   
 
 
@@ -157,9 +164,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -175,10 +183,9 @@
       <meta itemprop="name" content="Yanzx's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/03/%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">推荐系统算法评价指标</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          推荐系统算法评价指标
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -211,7 +218,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>我们用一张表格展示推荐系统向用户推荐的列表与用户真实的访问项目,如下：</p>
+        <p>我们用一张表格展示推荐系统向用户推荐的列表与用户真实的访问项目,如下：</p>
 <table>
 <thead>
 <tr>
@@ -268,107 +275,33 @@
 <p>减函数，所以<strong>越靠前MRR越大</strong></p>
 <p>MRR和NDCG类似</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推荐列表</span></span><br><span class="line">R = [[<span class="number">3</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">12</span>, <span class="number">17</span>], [<span class="number">20</span>, <span class="number">15</span>, <span class="number">18</span>, <span class="number">14</span>, <span class="number">30</span>], [<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">15</span>], [<span class="number">56</span>, <span class="number">14</span>, <span class="number">25</span>, <span class="number">12</span>, <span class="number">19</span>], [<span class="number">21</span>,<span class="number">24</span>,<span class="number">36</span>,<span class="number">54</span>,<span class="number">45</span>]]</span><br><span class="line"><span class="comment"># 用户访问列表</span></span><br><span class="line">T=[[<span class="number">12</span>],[<span class="number">3</span>],[<span class="number">5</span>],[<span class="number">14</span>],[<span class="number">20</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">indicators_5</span>(<span class="params">rankedList, testList</span>):</span><br><span class="line">    Hits_i = <span class="number">0</span></span><br><span class="line">    Len_R = <span class="number">0</span></span><br><span class="line">    Len_T = <span class="built_in">len</span>(testList)</span><br><span class="line">    MRR_i = <span class="number">0</span></span><br><span class="line">    HR_i = <span class="number">0</span></span><br><span class="line">    NDCG_i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(rankedList)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(rankedList[i])):</span><br><span class="line">            <span class="keyword">if</span> testList[i][<span class="number">0</span>]==rankedList[i][j]:</span><br><span class="line">                Hits_i+=<span class="number">1</span></span><br><span class="line">                HR_i+=<span class="number">1</span></span><br><span class="line">                <span class="comment"># 注意j的取值从0开始</span></span><br><span class="line">                MRR_i+=<span class="number">1</span>/(j+<span class="number">1</span>)   </span><br><span class="line">                NDCG_i+=<span class="number">1</span>/(math.log2(<span class="number">1</span>+j+<span class="number">1</span>))</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    HR_i/=Len_T</span><br><span class="line">    MRR_i/=Len_T</span><br><span class="line">    NDCG_i/=Len_T</span><br><span class="line">    <span class="built_in">print</span>(Hits_i)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;HR@5=<span class="subst">&#123;HR_i&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;MRR@5=<span class="subst">&#123;MRR_i&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;NDCG@5=<span class="subst">&#123;NDCG_i&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    indicators_5(R, T)</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/" rel="tag"># 算法评价</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/01/%E5%AF%84%E5%AD%98%E5%99%A8%E3%80%81%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ksdb">
-      <meta itemprop="description" content="Just run">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yanzx's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/01/%E5%AF%84%E5%AD%98%E5%99%A8%E3%80%81%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">寄存器、缓存、内存之间的关系和区别</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-01 18:05:27" itemprop="dateCreated datePublished" datetime="2021-05-01T18:05:27+08:00">2021-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 18:12:42" itemprop="dateModified" datetime="2023-04-02T18:12:42+08:00">2023-04-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><p><img src="http://ksdb-blogimg.oss-cn-beijing.aliyuncs.com/typora/202304/02/181016-265963.png" alt="image-20230402181016238"></p>
-<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p><strong>寄存器（register）</strong>是CPU（中央处理器）的组成部分，是一种直接整合到cpu中的有限的高速访问速度的存储器，它是有一些与非门组合组成的，分为通用寄存器和特殊寄存器。cpu访问寄存器的速度是最快的。那为什么我们不把数据都存储到寄存器中呢，因为寄存器是一种<strong>容量有限</strong>的存储器，并且<strong>非常小</strong>。因此只把一些计算机的指令等一些计算机频繁用到的数据存储在其中，来提高计算机的运行速度。</p>
-<h2 id="缓存（Cache）"><a href="#缓存（Cache）" class="headerlink" title="缓存（Cache）"></a>缓存（Cache）</h2><p><strong>缓存</strong>就是数据交换的缓冲区（称作Cache），当某一硬件要读取数据时，会首先从缓存中查找需要的数据，如果找到了则直接执行，找不到的话则从内存中找。由于缓存的运行速度比内存快得多，故缓存的作用就是帮助硬件更快地运行。</p>
-<p>因为缓存往往使用的是RAM（断电即掉的非永久储存），所以在用完后还是会把文件送到硬盘等存储器里永久存储。电脑里最大的缓存就是内存条了，最快的是CPU上镶的L1和L2缓存，显卡的显存是给显卡运算芯片用的缓存，硬盘上也有16M或者32M的缓存。</p>
-<p>CACHE是在CPU中速度非常块，而容量却很小的一种存储器，它是计算机存储器中最强悍的存储器。由于技术限制，容量很难提升。</p>
-<p>对于大多数人来说Cache，是透明的、不存在的。其中一个原因是Cache是集成到CPU中，对于程序员来说是透明的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/01/%E5%AF%84%E5%AD%98%E5%99%A8%E3%80%81%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/01/%E5%AF%84%E5%AD%98%E5%99%A8%E3%80%81%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB/" rel="prev" title="寄存器、缓存、内存之间的关系和区别">
+      <i class="fa fa-chevron-left"></i> 寄存器、缓存、内存之间的关系和区别
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -421,6 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%91%BD%E4%B8%AD%E7%8E%87-HR-Hits-Ratio"><span class="nav-number">1.</span> <span class="nav-text">1. 命中率 HR(Hits Ratio)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BD%92%E4%B8%80%E5%8C%96%E6%8A%98%E6%8D%9F%E7%B4%AF%E8%AE%A1%E5%A2%9E%E7%9B%8A%EF%BC%88Normalized-Discounted-Cumulative-Gain%EF%BC%8CNDCG%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">2. 归一化折损累计增益（Normalized Discounted Cumulative Gain，NDCG）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B9%B3%E5%9D%87%E5%80%92%E6%95%B0%E6%8E%92%E5%90%8D-Mean-Reciprocal-Rank-MRR"><span class="nav-number">3.</span> <span class="nav-text">3. 平均倒数排名(Mean Reciprocal Rank,MRR)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
